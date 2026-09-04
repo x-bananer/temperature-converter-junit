@@ -1,0 +1,23 @@
+# Maven build output
+target/
+
+# Compiled Java files
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Visual Studio Code
+.vscode/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
