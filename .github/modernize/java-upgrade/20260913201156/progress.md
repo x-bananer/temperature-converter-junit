@@ -75,7 +75,7 @@
     - Result: SUCCESS; all tests passed
     - Notes: Final runtime-target validation succeeded.
   - **Deferred Work**: None
-  - **Commit**: Not started
+  - **Commit**: f8717ddf99db8cd92c89e5cb6d746bac3c1df211 - Step 6: Final Summary - Compile: SUCCESS, Tests: 3/3 passed
 
 - **Step 5: CVE Validation & Fix**
   - **Status**: ✅ Completed
@@ -92,7 +92,7 @@
     - Result: SUCCESS; no known CVEs requiring fixes
     - Notes: Scanned org.junit.jupiter:junit-jupiter:5.10.2.
   - **Deferred Work**: None
-  - **Commit**: Not started
+  - **Commit**: f8717ddf99db8cd92c89e5cb6d746bac3c1df211 - Step 6: Final Summary - Compile: SUCCESS, Tests: 3/3 passed
 
 - **Step 6: Final Summary**
   - **Status**: ✅ Completed
@@ -109,7 +109,7 @@
     - Result: SUCCESS
     - Notes: All upgrade success criteria met.
   - **Deferred Work**: None
-  - **Commit**: Not started
+  - **Commit**: f8717ddf99db8cd92c89e5cb6d746bac3c1df211 - Step 6: Final Summary - Compile: SUCCESS, Tests: 3/3 passed
 
 ---
 
