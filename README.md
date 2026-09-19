@@ -4,6 +4,12 @@
 
 A Maven-based Java project for converting temperatures and practicing JUnit 5 unit testing.
 
+## In-class assignment 2: Code Coverage
+
+JaCoCo code coverage report:
+
+[https://x-bananer.github.io/temperature-converter-junit/](https://x-bananer.github.io/temperature-converter-junit/)
+
 ## Run the tests
 
 ```bash
