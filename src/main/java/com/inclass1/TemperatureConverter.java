@@ -9,6 +9,10 @@ public class TemperatureConverter {
 		return (celsius * 9 / 5) + 32;
 	}
 
+	public double kelvinToCelsius(double kelvin) {
+		return Math.round((kelvin - 273.15) * 100.0) / 100.0;
+	}
+
 	public boolean isExtremeTemperature(double celsius) {
 		return celsius < -40.0 || celsius > 50.0;
 	}

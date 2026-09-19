@@ -11,6 +11,7 @@ public class Main {
         System.out.println("Temperature converter");
         System.out.println("1. F to C");
         System.out.println("2. C to F");
+        System.out.println("3. K to C");
 
         int choice = scanner.nextInt();
 
@@ -34,6 +35,18 @@ public class Main {
             double fahrenheit = converter.celsiusToFahrenheit(celsius);
 
             System.out.println("Result: " + fahrenheit + " F");
+
+            if (converter.isExtremeTemperature(celsius)) {
+                System.out.println("Extreme temperature.");
+            }
+        } else if (choice == 3) {
+            System.out.print("Kelvin: ");
+
+            double kelvin = scanner.nextDouble();
+
+            double celsius = converter.kelvinToCelsius(kelvin);
+
+            System.out.println("Result: " + celsius + " C");
 
             if (converter.isExtremeTemperature(celsius)) {
                 System.out.println("Extreme temperature.");
