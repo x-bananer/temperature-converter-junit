@@ -2,11 +2,11 @@ package com.inclass1;
 
 public class TemperatureConverter {
 	public double fahrenheitToCelsius(double fahrenheit) {
-		return (fahrenheit - 32) * 5 / 9;
+		return Math.round(((fahrenheit - 32) * 5 / 9) * 100.0) / 100.0;
 	}
 
 	public double celsiusToFahrenheit(double celsius) {
-		return (celsius * 9 / 5) + 32;
+		return Math.round(((celsius * 9 / 5) + 32) * 100.0) / 100.0;
 	}
 
 	public double kelvinToCelsius(double kelvin) {
