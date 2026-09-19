@@ -2,15 +2,19 @@
 
 <span class="fc" id="L3">public class TemperatureConverter {</span>
 	public double fahrenheitToCelsius(double fahrenheit) {
-<span class="fc" id="L5">		return (fahrenheit - 32) * 5 / 9;</span>
+<span class="fc" id="L5">		return Math.round(((fahrenheit - 32) * 5 / 9) * 100.0) / 100.0;</span>
 	}
 
 	public double celsiusToFahrenheit(double celsius) {
-<span class="fc" id="L9">		return (celsius * 9 / 5) + 32;</span>
+<span class="fc" id="L9">		return Math.round(((celsius * 9 / 5) + 32) * 100.0) / 100.0;</span>
+	}
+
+	public double kelvinToCelsius(double kelvin) {
+<span class="fc" id="L13">		return Math.round((kelvin - 273.15) * 100.0) / 100.0;</span>
 	}
 
 	public boolean isExtremeTemperature(double celsius) {
-<span class="fc bfc" id="L13" title="All 4 branches covered.">		return celsius &lt; -40.0 || celsius &gt; 50.0;</span>
+<span class="fc bfc" id="L17" title="All 4 branches covered.">		return celsius &lt; -40.0 || celsius &gt; 50.0;</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
