@@ -32,6 +32,16 @@ pipeline {
 				)
             }
         }
+    }
 
+	post {
+        always {
+            emailext(
+                to: 'kseniia.shlenskaia@gmail.com',
+                subject: "Jenkins build ${env.BUILD_NUMBER}",
+                body: "Build result: ${currentBuild.currentResult}",
+                attachmentsPattern: 'jacoco-report.zip'
+            )
+        }
     }
 }
