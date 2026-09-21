@@ -6,18 +6,18 @@ pipeline {
 	}
 
     stages {
-        // stage('check') {
-        //     steps {
-        //         git branch: 'main',
-        //             url: 'https://github.com/x-bananer/temperature-converter-junit.git'
-        //     }
-        // }
-
-		stage('check') {
+        stage('check') {
             steps {
-                echo 'check stage'
+                git branch: 'main',
+                    url: 'https://github.com/x-bananer/temperature-converter-junit'
             }
         }
+
+		// stage('check') {
+        //     steps {
+        //         echo 'check stage'
+        //     }
+        // }
 
         stage('build') {
             steps {
