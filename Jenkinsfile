@@ -13,6 +13,12 @@ pipeline {
         //     }
         // }
 
+		stage('check') {
+            steps {
+                echo 'check stage'
+            }
+        }
+
         stage('build') {
             steps {
                 sh 'mvn clean install'
