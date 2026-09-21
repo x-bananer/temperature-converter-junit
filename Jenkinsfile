@@ -27,7 +27,9 @@ pipeline {
 
 		stage('make report') {
             steps {
-                jacoco()
+                jacoco(
+					exclusionPattern: '**/Main.class'
+				)
             }
         }
 
