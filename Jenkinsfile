@@ -5,14 +5,6 @@ pipeline {
 		maven 'Maven3'
 	}
 
-	stages {
-		stage('check') {
-			steps {
-
-			}
-		}
-	}
-
     stages {
         stage('check') {
             steps {
