@@ -13,15 +13,9 @@ pipeline {
             }
         }
 
-		// stage('check') {
-        //     steps {
-        //         echo 'check stage'
-        //     }
-        // }
-
         stage('build') {
             steps {
-                sh 'mvn clean install'
+                sh 'mvn clean compile'
             }
         }
 
@@ -36,6 +30,12 @@ pipeline {
                 jacoco(
 					exclusionPattern: '**/Main.class'
 				)
+            }
+        }
+
+        stage('publish test results') {
+            steps {
+                junit '**/target/surefire-reports/*.xml'
             }
         }
     }
