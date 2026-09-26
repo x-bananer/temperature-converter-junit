@@ -6,6 +6,7 @@ pipeline {
 	}
 
 	environment {
+		PATH = "/usr/local/bin:${env.PATH}"
         DOCKERHUB_REPO = 'ksenishl/temperature-converter'
         DOCKER_IMAGE_TAG = 'latest'
         DOCKERHUB_CREDENTIALS_ID = 'dockerhub-credentials'
