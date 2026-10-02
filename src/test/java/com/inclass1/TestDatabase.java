@@ -17,10 +17,15 @@ public final class TestDatabase {
 
         try (Connection connection = DatabaseConnection.getConnection(); Statement statement = connection.createStatement()) {
             statement.execute("DROP TABLE IF EXISTS temperature_records");
+            statement.execute("DROP TABLE IF EXISTS temperature_types");
             statement.execute("DROP TABLE IF EXISTS time_records");
+            statement.execute("CREATE TABLE temperature_types (id INT AUTO_INCREMENT PRIMARY KEY, type_name VARCHAR(50) NOT NULL)");
+            statement.execute("INSERT INTO temperature_types (id, type_name) VALUES "
+                    + "(1, 'Fahrenheit to Celsius'), (2, 'Celsius to Fahrenheit'), (3, 'Kelvin to Celsius')");
             statement.execute("CREATE TABLE temperature_records (id INT AUTO_INCREMENT PRIMARY KEY, "
-                    + "type VARCHAR(50) NOT NULL, from_temperature DECIMAL(10,2) NOT NULL, "
-                    + "to_temperature DECIMAL(10,2) NOT NULL)");
+                    + "temperature_type_id INT NOT NULL, from_temperature DECIMAL(10,2) NOT NULL, "
+                    + "to_temperature DECIMAL(10,2) NOT NULL, "
+                    + "FOREIGN KEY (temperature_type_id) REFERENCES temperature_types(id))");
             statement.execute("CREATE TABLE time_records (id INT AUTO_INCREMENT PRIMARY KEY, "
                     + "speed DECIMAL(10,2) NOT NULL, distance DECIMAL(10,2) NOT NULL, `time` DECIMAL(10,2) NOT NULL)");
         }

@@ -2,6 +2,7 @@ package com.inclass1.view;
 
 import com.inclass1.controller.TemperatureRecordController;
 import com.inclass1.model.TemperatureRecord;
+import com.inclass1.model.TemperatureType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -20,13 +21,7 @@ public class TemperatureRecordsSection extends VBox {
 
 		Label title = new Label("Temperature Records");
 
-		ComboBox<String> conversionSelect = new ComboBox<>();
-		conversionSelect.getItems().addAll(
-				"Fahrenheit to Celsius",
-				"Celsius to Fahrenheit",
-				"Kelvin to Celsius");
-
-		conversionSelect.setValue("Fahrenheit to Celsius");
+		ComboBox<TemperatureType> conversionSelect = new ComboBox<>();
 
 		TextField temperatureField = new TextField();
 		temperatureField.setPromptText("Enter temperature");
@@ -52,19 +47,29 @@ public class TemperatureRecordsSection extends VBox {
 		table.getColumns().addAll(typeColumn, fromColumn, toColumn);
 
 		TemperatureRecordController controller = new TemperatureRecordController();
+		loadTypes(conversionSelect, controller);
 		convertButton.setOnAction(event -> convert(conversionSelect, temperatureField, table, controller));
 		load(table, controller);
 
 		getChildren().addAll(title, conversionSelect, temperatureField, convertButton, table);
 	}
 
-	private void convert(ComboBox<String> conversionSelect, TextField temperatureField, TableView<TemperatureRecord> table, TemperatureRecordController controller) {
+	private void convert(ComboBox<TemperatureType> conversionSelect, TextField temperatureField, TableView<TemperatureRecord> table, TemperatureRecordController controller) {
 		try {
 			controller.add(conversionSelect.getValue(), temperatureField.getText());
 			table.getItems().setAll(controller.getAll());
 			temperatureField.clear();
 		} catch (NumberFormatException | SQLException e) {
 			System.out.println("Could not save temperature");
+		}
+	}
+
+	private void loadTypes(ComboBox<TemperatureType> conversionSelect, TemperatureRecordController controller) {
+		try {
+			conversionSelect.getItems().setAll(controller.getTypes());
+			conversionSelect.setValue(conversionSelect.getItems().get(0));
+		} catch (SQLException e) {
+			System.out.println("Could not load temperature types");
 		}
 	}
 

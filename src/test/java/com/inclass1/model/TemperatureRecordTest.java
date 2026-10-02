@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TemperatureRecordTest {
     @Test
     void formatsFahrenheitToCelsius() {
-        TemperatureRecord record = new TemperatureRecord("Fahrenheit to Celsius", 32, 0);
+        TemperatureRecord record = new TemperatureRecord(new TemperatureType(1, "Fahrenheit to Celsius"), 32, 0);
 
         assertEquals("Fahrenheit to Celsius", record.getType());
         assertEquals("32.0 °F", record.getFrom());

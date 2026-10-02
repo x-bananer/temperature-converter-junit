@@ -16,7 +16,7 @@ class TemperatureRecordControllerTest {
 
     @Test
     void acceptsTextFromViewAndSavesIt() throws Exception {
-        controller.add("Kelvin to Celsius", "273.15");
+        controller.add(controller.getTypes().get(2), "273.15");
 
         assertEquals(1, controller.getAll().size());
         assertEquals(0, controller.getAll().get(0).getToTemperature());

@@ -2,6 +2,7 @@ package com.inclass1.dao;
 
 import com.inclass1.TestDatabase;
 import com.inclass1.model.TemperatureRecord;
+import com.inclass1.model.TemperatureType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +18,7 @@ class TemperatureRecordDAOTest {
 
     @Test
     void savesAndLoadsTemperatureRecord() throws Exception {
-        dao.add(new TemperatureRecord("Fahrenheit to Celsius", 32, 0));
+        dao.add(new TemperatureRecord(new TemperatureType(1, "Fahrenheit to Celsius"), 32, 0));
 
         TemperatureRecord record = dao.getAll().get(0);
         assertEquals("Fahrenheit to Celsius", record.getType());

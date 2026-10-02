@@ -1,18 +1,22 @@
 package com.inclass1.model;
 
 public class TemperatureRecord {
-	private final String type;
+	private final TemperatureType temperatureType;
 	private final double fromTemperature;
 	private final double toTemperature;
 
-	public TemperatureRecord(String type, double fromTemperature, double toTemperature) {
-		this.type = type;
+	public TemperatureRecord(TemperatureType temperatureType, double fromTemperature, double toTemperature) {
+		this.temperatureType = temperatureType;
 		this.fromTemperature = fromTemperature;
 		this.toTemperature = toTemperature;
 	}
 
 	public String getType() {
-		return type;
+		return temperatureType.getName();
+	}
+
+	public TemperatureType getTemperatureType() {
+		return temperatureType;
 	}
 
 	public String getFrom() {
@@ -32,7 +36,7 @@ public class TemperatureRecord {
 	}
 
 	private String fromUnit() {
-		return switch (type) {
+		return switch (getType()) {
 			case "Fahrenheit to Celsius" -> "°F";
 			case "Celsius to Fahrenheit" -> "°C";
 			default -> "K";
@@ -40,6 +44,6 @@ public class TemperatureRecord {
 	}
 
 	private String toUnit() {
-		return type.equals("Celsius to Fahrenheit") ? "°F" : "°C";
+		return getType().equals("Celsius to Fahrenheit") ? "°F" : "°C";
 	}
 }
