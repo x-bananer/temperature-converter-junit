@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS temperature_records (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    type VARCHAR(50) NOT NULL,
+    from_temperature DECIMAL(10,2) NOT NULL,
+    to_temperature DECIMAL(10,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS time_records (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    speed DECIMAL(10,2) NOT NULL,
+    distance DECIMAL(10,2) NOT NULL,
+    time DECIMAL(10,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
