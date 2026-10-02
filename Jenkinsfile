@@ -75,5 +75,13 @@ pipeline {
 				}
 			}
 		}
+
+		stage('run docker image') {
+			steps {
+				script {
+					sh 'docker compose up -d'
+				}
+			}
+		}
     }
 }
