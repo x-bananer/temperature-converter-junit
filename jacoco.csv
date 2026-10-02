@@ -1,2 +1,13 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+inslacc,com.inclass1.db,DatabaseConnection,3,18,0,0,1,4,1,2,1,2
+inslacc,com.inclass1.controller,TimeRecordController,0,20,0,0,0,4,0,3,0,3
+inslacc,com.inclass1.controller,TemperatureRecordController,0,19,0,0,0,4,0,3,0,3
 inslacc,com.inclass1,TemperatureConverter,0,53,0,4,0,5,0,7,0,5
+inslacc,com.inclass1.view,TemperatureRecordsSection,198,0,0,0,38,0,4,0,4,0
+inslacc,com.inclass1.view,TimeRecordsSection,190,0,0,0,38,0,4,0,4,0
+inslacc,com.inclass1.service,TemperatureRecordService,10,49,2,2,1,11,2,4,0,3
+inslacc,com.inclass1.service,TimeRecordService,0,27,0,0,0,6,0,3,0,3
+inslacc,com.inclass1.dao,TemperatureRecordDAO,0,66,0,2,0,20,0,4,0,3
+inslacc,com.inclass1.dao,TimeRecordDAO,0,66,0,2,0,20,0,4,0,3
+inslacc,com.inclass1.model,TimeRecord,0,33,0,0,0,11,0,7,0,7
+inslacc,com.inclass1.model,TemperatureRecord,5,52,3,2,2,13,3,8,0,8
