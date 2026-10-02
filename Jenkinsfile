@@ -1,11 +1,11 @@
 pipeline {
     agent any
 
-	tools {
-		maven 'Maven3'
-	}
+    tools {
+        maven 'Maven3'
+    }
 
-	environment {
+    environment {
         DOCKERHUB_REPO = 'ksenishl/temperature-converter'
         DOCKER_IMAGE_TAG = 'latest'
         DOCKERHUB_CREDENTIALS_ID = 'dockerhub-credentials'
@@ -21,7 +21,7 @@ pipeline {
 
         stage('build') {
             steps {
-                sh 'mvn clean compile'
+                sh 'mvn clean package'
             }
         }
 
@@ -31,11 +31,11 @@ pipeline {
             }
         }
 
-		stage('make report') {
+        stage('make report') {
             steps {
                 jacoco(
-					exclusionPattern: '**/Main.class'
-				)
+                    exclusionPattern: '**/Main.class'
+                )
             }
         }
 
@@ -45,10 +45,13 @@ pipeline {
             }
         }
 
-		stage('build docker image') {
+        stage('build docker image') {
             steps {
                 script {
-                    docker.build("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}")
+                    docker.build(
+                        "${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}",
+                        "--platform linux/amd64 ."
+                    )
                 }
             }
         }
@@ -60,7 +63,9 @@ pipeline {
                         'https://index.docker.io/v1/',
                         DOCKERHUB_CREDENTIALS_ID
                     ) {
-                        docker.image("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}").push()
+                        docker.image(
+                            "${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}"
+                        ).push()
                     }
                 }
             }
