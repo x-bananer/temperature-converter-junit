@@ -2,18 +2,9 @@
 
 ## Assignment Description
 
-This is an individual Java assignment about temperature conversion and JUnit testing.
+This individual in-class assignment is used to practise Java development tools: JUnit testing, JaCoCo code coverage, Jenkins, Docker, JavaFX, and MariaDB.
 
-The application converts temperatures between Fahrenheit and Celsius, Celsius and Fahrenheit, and Kelvin and Celsius. It also calculates time from speed and distance.
-
-The assignment includes:
-
-- a JavaFX graphical user interface
-- saving temperature and time records
-- a MariaDB database
-- JUnit tests
-- a JaCoCo code coverage report
-- Docker and Jenkins configuration
+The application does not have a specific purpose or concept. It includes temperature conversion and time calculation from speed and distance.
 
 ## Technologies & Tools Used
 
